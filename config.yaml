@@ -1,0 +1,53 @@
+model:
+  # VITON-HD model path (can use environment variable)
+  viton_hd_path: "${MODEL_PATH}"
+  device: "cuda"
+  fallback_enabled: true
+  
+  # Model configuration
+  checkpoint_name: "checkpoint.pth"
+  config_name: "config.yaml"
+
+processing:
+  # Video extraction
+  target_fps: 30
+  frame_format: "png"
+  
+  # Batch processing
+  max_workers: 4
+  batch_size: 8
+  
+  # Image preprocessing
+  target_height: 1024
+  target_width: 768
+
+refinement:
+  enabled: false
+  model: "stabilityai/stable-diffusion-xl-refiner-1.0"
+  strength: 0.3
+  guidance_scale: 7.5
+  num_inference_steps: 20
+
+warp_blend:
+  # Fallback algorithm parameters
+  use_mediapipe_pose: true
+  use_mediapipe_segmentation: true
+  use_rembg_fallback: true
+  
+  # TPS warping
+  tps_points: 10
+  tps_lambda: 0.1
+  
+  # Blending
+  blend_method: "seamless"  # seamless, alpha, poisson
+  feather_radius: 5
+
+debug:
+  save_masks: false
+  save_warped: false
+  save_pose: false
+  output_dir: "debug"
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
