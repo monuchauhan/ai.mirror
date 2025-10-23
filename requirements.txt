@@ -1,0 +1,35 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+Pillow>=10.0.0
+opencv-python>=4.8.0
+pyyaml>=6.0
+
+# Computer vision & ML
+mediapipe>=0.10.0
+kornia>=0.7.0
+timm>=0.9.0
+
+# Segmentation
+rembg>=2.0.50
+# U2Net weights downloaded on-demand by rembg
+
+# CLI & utilities
+typer>=0.9.0
+rich>=13.0.0
+tqdm>=4.65.0
+
+# Optional: Diffusion refinement (lazy loaded)
+# diffusers>=0.21.0
+# transformers>=4.30.0
+# accelerate>=0.20.0
+
+# Testing
+pytest>=7.4.0
+pytest-mock>=3.11.0
+pytest-cov>=4.1.0
+
+# Type checking (dev)
+mypy>=1.5.0
+types-PyYAML>=6.0.12
